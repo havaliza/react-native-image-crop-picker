@@ -580,7 +580,7 @@ class PickerModule extends ReactContextBaseJavaModule implements ActivityEventLi
 
     private void startCropping(Activity activity, Uri uri) {
         UCrop.Options options = new UCrop.Options();
-        options.setCompressionFormat(Bitmap.CompressFormat.JPEG);
+        options.setCompressionFormat(Bitmap.CompressFormat.WEBP);
         options.setCompressionQuality(100);
         options.setCircleDimmedLayer(cropperCircleOverlay);
         options.setShowCropGrid(showCropGuidelines);
@@ -600,7 +600,7 @@ class PickerModule extends ReactContextBaseJavaModule implements ActivityEventLi
 
         UCrop.of(uri, Uri.fromFile(new File(this.getTmpDir(activity), UUID.randomUUID().toString() + ".jpg")))
                 .withMaxResultSize(width, height)
-                .withAspectRatio(width, height)
+                //.withAspectRatio(width, height)
                 .withOptions(options)
                 .start(activity);
     }
